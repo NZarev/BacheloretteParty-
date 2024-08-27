@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class BacheloretteParty {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double partyPrice = Double.parseDouble(scanner.nextLine());
+        int loveMessages = Integer.parseInt(scanner.nextLine());
+        int waxRoses = Integer.parseInt(scanner.nextLine());
+        int keychains = Integer.parseInt(scanner.nextLine());
+        int caricatures = Integer.parseInt(scanner.nextLine());
+        int luckySurprises = Integer.parseInt(scanner.nextLine());
+
+        double totalSales = loveMessages * 0.60 + waxRoses * 7.20 + keychains * 3.60 + caricatures * 18.20 + luckySurprises * 22.00;
+        int totalItems = loveMessages + waxRoses + keychains + caricatures + luckySurprises;
+
+        if (totalItems >= 25) {
+            totalSales *= 0.65;
+        }
+
+        totalSales *= 0.90;
+
+        if (totalSales >= partyPrice) {
+            System.out.printf("Yes! %.2f lv left.%n", totalSales - partyPrice);
+        } else {
+            System.out.printf("Not enough money! %.2f lv needed.%n", partyPrice - totalSales);
+        }
+
+        scanner.close();
+    }
+}
